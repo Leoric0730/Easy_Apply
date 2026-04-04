@@ -45,10 +45,30 @@ def detect_sections(text: str) -> dict:
     Looks for common resume headings and splits text accordingly.
     """
     section_keywords = {
-        "education": ["education", "academic"],
-        "experience": ["experience", "work history", "employment"],
-        "skills": ["skills", "technical skills", "technologies"],
-        "projects": ["projects", "project experience"],
+        "education": [
+            "education", "academic",
+            "教育背景", "教育经历", "学历",
+        ],
+        "experience": [
+            "experience", "work history", "employment",
+            "工作经历", "工作经验", "实习经历", "实习经验", "职业经历",
+        ],
+        "skills": [
+            "skills", "technical skills", "technologies",
+            "专业技能", "技术能力", "技能特长", "技术栈",
+        ],
+        "projects": [
+            "projects", "project experience",
+            "项目经历", "项目经验", "项目描述",
+        ],
+        "awards": [
+            "awards", "honors", "achievements",
+            "荣誉奖项", "获奖经历", "所获荣誉",
+        ],
+        "self_evaluation": [
+            "self evaluation", "summary", "objective", "about",
+            "自我评价", "个人简介", "个人总结", "自我描述",
+        ],
     }
 
     lines = text.split("\n")

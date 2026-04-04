@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+
+# Build
+frontend/dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Data
+*.faiss
+uploads/
+
+# Docker
+mysql_data/
+
+# Claude
+.claude/settings.local.json

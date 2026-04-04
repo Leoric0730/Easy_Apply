@@ -6,7 +6,12 @@
       "Write",
       "Edit",
       "Glob",
-      "Grep"
+      "Grep",
+      "Bash(npm --version)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(python -c \"import fastapi; print\\(''FastAPI:'', fastapi.__version__\\)\")",
+      "Bash(python:*)"
     ],
     "deny": [
       "Bash(rm -rf:*)",

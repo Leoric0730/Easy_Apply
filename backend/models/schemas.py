@@ -1,8 +1,9 @@
 from datetime import datetime
 from sqlalchemy import (
     Column, Integer, String, Text, Float, Boolean, DateTime,
-    Enum, JSON, ForeignKey, LargeBinary, Time
+    JSON, ForeignKey, LargeBinary, Time, Enum as SQLEnum
 )
+import enum
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -53,7 +54,7 @@ class Job(Base):
     embedding = Column(LargeBinary)
     match_score = Column(Float)
     status = Column(
-        Enum("new", "selected", "rejected", "applied", "expired", name="job_status"),
+        String(20),
         default="new"
     )
     scraped_at = Column(DateTime, default=datetime.utcnow)
@@ -71,7 +72,7 @@ class Application(Base):
     filled_data = Column(JSON)
     browser_session_id = Column(String(100))
     status = Column(
-        Enum("filling", "ready_to_review", "submitted", name="app_status"),
+        String(20),
         default="filling"
     )
     applied_at = Column(DateTime)
@@ -88,7 +89,7 @@ class PreferenceSignal(Base):
     resume_profile_id = Column(Integer, ForeignKey("resume_profiles.id"), nullable=False)
     job_id = Column(Integer, ForeignKey("jobs.id"), nullable=False)
     action = Column(
-        Enum("selected", "rejected", "bookmarked", name="signal_action"),
+        String(20),
         nullable=False
     )
     created_at = Column(DateTime, default=datetime.utcnow)

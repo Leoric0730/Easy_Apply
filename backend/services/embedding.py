@@ -4,7 +4,7 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
 
-MODEL_NAME = "all-MiniLM-L6-v2"
+MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
 EMBEDDING_DIM = 384
 INDEX_PATH = os.path.join(os.path.dirname(__file__), "..", "faiss_index.bin")
 ID_MAP_PATH = os.path.join(os.path.dirname(__file__), "..", "faiss_id_map.pkl")
